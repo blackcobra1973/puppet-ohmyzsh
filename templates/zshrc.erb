@@ -64,8 +64,6 @@ HIST_STAMPS="yyyy-mm-dd"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(autojump git screen sudo tmux zsh-syntax-highlighting)
-  git
-)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -86,10 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+<% if @disable_shared_history -%>
 # Disable shared history
 unsetopt share_history
 setopt no_share_history
-
+ <% end -%>
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
