@@ -33,6 +33,24 @@ define ohmyzsh::theme(
     $home = "${ohmyzsh::home}/${name}"
   }
 
+  $themepath = "${home}/.oh-my-zsh/custom/themes"
+
+  if ! defined(File[$themepath]) {
+    file { $themepath:
+      ensure  => directory,
+      owner   => $name,
+      require => Ohmyzsh::Install[$name],
+    }
+  }
+
+  file { "${themepath}/powerline.zsh-theme":
+    ensure  => file,
+    source  => 'puppet:///modules/ohmyzsh/powerline.zsh-theme',
+    owner   => $name,
+    mode    => '0644',
+    require => File[$themepath],
+  }
+
   file_line { "${name}-${theme}-install":
     path    => "${home}/.zshrc",
     line    => "ZSH_THEME=\"${theme}\"",
