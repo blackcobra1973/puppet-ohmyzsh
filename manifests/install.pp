@@ -30,6 +30,8 @@ define ohmyzsh::install(
   Boolean $disable_shared_history = false,
           $hist_stamps            = undef,
           $source_list            = undef,
+          $update_zsh_days        = undef,
+          $plugins                = 'git',
 ) {
 
   include ohmyzsh
