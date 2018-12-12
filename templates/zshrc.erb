@@ -53,7 +53,9 @@ DISABLE_AUTO_UPDATE="false"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
-HIST_STAMPS="yyyy-mm-dd"
+<% if defined? @hist_stamps -%>
+HIST_STAMPS="<%= @hist_stamps %>"
+ <% end -%>
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
