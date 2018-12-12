@@ -29,6 +29,7 @@ define ohmyzsh::install(
   Boolean $disable_auto_update    = false,
   Boolean $disable_shared_history = false,
           $hist_stamps            = undef,
+          $source_list            = undef,
 ) {
 
   include ohmyzsh

@@ -103,5 +103,9 @@ setopt no_share_history
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-. /etc/profile.d/alias.sh
-. /etc/profile.d/colorls.sh
+## Additional included files
+<%- if @source_list.is_a?(Array) then -%>
+  <%- @source_list.each do |source_entry| -%>
+source  <%= source_entry %>
+  <%- end -%>
+<%- end -%>
